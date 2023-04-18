@@ -13,6 +13,12 @@ struct PostedPhoto: Encodable {
     var typeId: String
 }
 
+struct PhotoObject: Decodable {
+    var id: Int
+    var name: String
+    var image: String?
+}
+
 struct ResponseObject: Decodable {
     var currentPage: Int
     var totalPages: Int
@@ -25,15 +31,3 @@ struct ResponseObject: Decodable {
     }
 }
 
-struct PhotoObject: Decodable {
-    var id: Int
-    var name: String
-    var image: String?
-    
-    enum CodingKeys: CodingKey {
-        case id
-        case name
-        case image
-    }
-    
-}

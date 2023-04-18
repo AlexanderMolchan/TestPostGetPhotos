@@ -37,7 +37,7 @@ final class MainViewController: UIViewController {
     
     private var currentPage = 0
     private var totalPages = 0
-    private var selectedIndex: IndexPath?
+    private var selectedIndex: Int?
     
     private var photoArray = [PhotoObject]() {
         didSet {
@@ -131,7 +131,7 @@ final class MainViewController: UIViewController {
     
     private func showPicker(at indexPath: IndexPath) {
         present(photoPicker, animated: true)
-        self.selectedIndex = indexPath
+        self.selectedIndex = photoArray[indexPath.row].id
     }
     
 }
@@ -173,7 +173,7 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
-              let index = selectedIndex?.row else { return }
+              let index = selectedIndex else { return }
         let name = "Developer Alexander Molchan"
         let photo = image.jpegData(compressionQuality: 0.5) ?? Data()
         
