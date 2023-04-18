@@ -86,7 +86,7 @@ final class MainViewController: UIViewController {
     }
     
     // MARK: -
-    // MARK: - BusinessLogic
+    // MARK: - Business Logic
     
     private func getData() {
         spinner.startAnimating()
@@ -137,7 +137,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: -
-// MARK: - TableViewDataSourse Extencion
+// MARK: - TableView DataSourse Extencion
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,7 +151,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: -
-// MARK: - TableViewDelegate Extencion
+// MARK: - TableView Delegate Extencion
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -176,11 +176,15 @@ extension MainViewController: UIImagePickerControllerDelegate & UINavigationCont
               let index = selectedIndex?.row else { return }
         let name = "Developer Alexander Molchan"
         let photo = image.jpegData(compressionQuality: 0.5) ?? Data()
-        NetworkManager().uploadPhoto(photo: PostedPhoto(name: name, photo: photo, typeId: String(index))) {
+        
+        let postedPhoto = PostedPhoto(name: name, photo: photo, typeId: String(index))
+        
+        NetworkManager().uploadPhoto(photo: postedPhoto) {
             self.showAlert(title: "Upload successful!", message: "Congratulations!")
         } failure: {
             self.showAlert(title: "Upload Error!", message: "Please, try again later.")
         }
+        
         picker.dismiss(animated: true)
     }
     
