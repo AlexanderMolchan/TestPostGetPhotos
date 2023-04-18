@@ -38,7 +38,6 @@ extension ApiManager: TargetType {
     
     var task: Moya.Task {
         switch self {
-                
             case .getPhotos:
                 guard let parameters else { return .requestPlain }
                 return .requestParameters(parameters: parameters, encoding: encoding)
@@ -53,8 +52,6 @@ extension ApiManager: TargetType {
                 
                 return .uploadMultipart([nameFormData, imageFormData, idFormData])
         }
-
-
     }
     
     var headers: [String : String]? {
@@ -66,10 +63,7 @@ extension ApiManager: TargetType {
         switch self {
             case .getPhotos(let page):
                 parameters["page"] = page
-            case .uploadPhoto(let photo):
-                parameters["name"] = photo.name
-                parameters["photo"] = photo.photo
-                parameters["typeId"] = photo.typeId
+            default: return nil
         }
         return parameters
     }
