@@ -137,7 +137,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: -
-// MARK: - TableView DataSourse Extencion
+// MARK: - TableView DataSourse Extension
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,7 +151,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: -
-// MARK: - TableView Delegate Extencion
+// MARK: - TableView Delegate Extension
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -168,7 +168,7 @@ extension MainViewController: UITableViewDelegate {
 }
 
 // MARK: -
-// MARK: - ImagePicker Extencion
+// MARK: - ImagePicker Extension
 
 extension MainViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
