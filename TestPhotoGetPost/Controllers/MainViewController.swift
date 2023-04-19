@@ -137,7 +137,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: -
-// MARK: - TableView DataSourse Extension
+// MARK: - TableView DataSource Extension
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
